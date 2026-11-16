@@ -1,10 +1,214 @@
 
+/* Golden Yellow Travel Postcard Theme */
+:root {
+  --page-bg: #FFDF00;        /* Golden Yellow Background */
+  --card-bg: #fffdf9;        /* Postcard Paper White */
+  --ink-dark: #1d2432;       /* Deep Charcoal Ink */
+  --ink-muted: #525969;      /* Muted Stamp Gray */
+  --airmail-red: #c84b31;    /* Vintage Airmail Red */
+  --postage-navy: #1d3557;   /* Postage Navy Blue */
+  --stamp-accent: #f4a261;   /* Warm Amber Stamp Highlight */
+  --border-tan: #d8c8a8;     /* Subtle Postcard Border */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  background-color: rgb(230, 226, 176);
+  background-color: var(--page-bg);
+  color: var(--ink-dark);
+  font-family: 'Georgia', serif;
+  line-height: 1.6;
+  min-height: 100vh;
 }
-h1 {
-  color: rgb(255, 166, 0);
+
+/* Classic Airmail Striped Border */
+.airmail-border {
+  height: 10px;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--airmail-red),
+    var(--airmail-red) 15px,
+    #ffffff 15px,
+    #ffffff 30px,
+    var(--postage-navy) 30px,
+    var(--postage-navy) 45px,
+    #ffffff 45px,
+    #ffffff 60px
+  );
 }
-p {
-  color: red;
+
+/* Navigation Header */
+header {
+  background-color: var(--card-bg);
+  border-bottom: 2px dashed var(--border-tan);
+  padding: 1.2rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--postage-navy);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.logo span {
+  color: var(--airmail-red);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--ink-dark);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+nav a:hover,
+nav a.active {
+  background-color: var(--postage-navy);
+  color: #ffffff;
+}
+
+/* Main Page Layout */
+.container {
+  max-width: 1100px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-title h1 {
+  font-size: 2.4rem;
+  color: var(--postage-navy);
+}
+
+.page-title p {
+  color: var(--ink-dark);
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Main Postcard Container */
+.postcard {
+  background: var(--card-bg);
+  border: 1px solid var(--border-tan);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+  padding: 2rem;
+  border-radius: 4px;
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+/* Home Page Split Postcard */
+.hero-postcard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border: 8px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.postcard-back {
+  border-left: 2px dashed var(--border-tan);
+  padding-left: 2rem;
+  position: relative;
+}
+
+/* Vintage Postage Stamp */
+.stamp {
+  width: 75px;
+  height: 85px;
+  border: 3px dotted var(--airmail-red);
+  background-color: #fff3b0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: var(--airmail-red);
+  text-align: center;
+  float: right;
+  margin-left: 1rem;
+  transform: rotate(3deg);
+}
+
+.postmark {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: inline-block;
+  border-bottom: 1px solid var(--border-tan);
+}
+
+.handwritten {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  margin: 1.2rem 0;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background-color: var(--airmail-red);
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.75rem 1.4rem;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: bold;
+  border-radius: 3px;
+  margin-top: 1rem;
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background-color: var(--postage-navy);
+}
+
+/* Grid for Places & Food */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.mini-postcard {
+  background: var(--card-bg);
+  border: 1px solid var(--border-tan);
+  padding: 1.3rem;
+  border-radius: 4px;
+  box-shadow: 0 8px
